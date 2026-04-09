@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "char-counter-username";
+const ENV_OWNER_NAME = import.meta.env.VITE_OWNER_NAME as string | undefined;
 
 export function useUserName() {
-  const [userName, setUserName] = useState<string>("");
+  const isLocked = !!ENV_OWNER_NAME;
+  const [userName, setUserName] = useState<string>(ENV_OWNER_NAME ?? "");
 
   useEffect(() => {
+    if (isLocked) return;
+
     const params = new URLSearchParams(window.location.search);
     const nameFromUrl = params.get("name");
 
@@ -16,9 +20,10 @@ export function useUserName() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) setUserName(stored);
     }
-  }, []);
+  }, [isLocked]);
 
   const updateUserName = (name: string) => {
+    if (isLocked) return;
     setUserName(name);
     if (name) {
       localStorage.setItem(STORAGE_KEY, name);
@@ -27,5 +32,5 @@ export function useUserName() {
     }
   };
 
-  return { userName, updateUserName };
+  return { userName, updateUserName, isLocked };
 }

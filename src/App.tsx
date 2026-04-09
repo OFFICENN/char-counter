@@ -19,7 +19,7 @@ export default function App() {
   const [showNameModal, setShowNameModal] = useState(false);
 
   const counts = useTextCounter(text);
-  const { userName, updateUserName } = useUserName();
+  const { userName, updateUserName, isLocked } = useUserName();
   const { isDark, toggleDarkMode } = useDarkMode();
 
   const handleShowToast = useCallback((message: string) => {
@@ -34,6 +34,7 @@ export default function App() {
       <div className="max-w-3xl mx-auto px-4 pb-12">
         <Header
           userName={userName}
+          isLocked={isLocked}
           onOpenSettings={() => setShowNameModal(true)}
         />
 
@@ -58,17 +59,20 @@ export default function App() {
           />
         </div>
 
-        <footer className="mt-10 text-center">
-          <button
-            onClick={() => setShowNameModal(true)}
-            className="text-xs text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-          >
-            名前を設定する
-          </button>
+        <footer className="mt-10 text-center text-xs text-gray-400 dark:text-gray-500">
+          {!isLocked && (
+            <button
+              onClick={() => setShowNameModal(true)}
+              className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            >
+              名前を設定する
+            </button>
+          )}
+          <p className="mt-2">© OFFICENN</p>
         </footer>
       </div>
 
-      {showNameModal && (
+      {showNameModal && !isLocked && (
         <NameSettingModal
           currentName={userName}
           onSave={updateUserName}
