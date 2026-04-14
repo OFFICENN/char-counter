@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文字カウンター 操作説明書</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif; line-height: 1.8; color: #1a1a2e; background: #f8f9fa; padding: 0; }
+  .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 48px 24px; text-align: center; }
+  .header h1 { font-size: 28px; margin-bottom: 8px; }
+  .header p { font-size: 15px; opacity: 0.9; }
+  .container { max-width: 800px; margin: 0 auto; padding: 32px 24px 64px; }
+  h2 { font-size: 22px; color: #667eea; border-left: 4px solid #667eea; padding-left: 12px; margin: 40px 0 16px; }
+  h3 { font-size: 17px; color: #333; margin: 24px 0 8px; }
+  p, li { font-size: 15px; margin-bottom: 8px; }
+  ul, ol { padding-left: 24px; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 14px; }
+  th, td { border: 1px solid #dee2e6; padding: 10px 14px; text-align: left; }
+  th { background: #f1f3ff; color: #444; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbff; }
+  .url-box { background: #eef2ff; border: 2px solid #667eea; border-radius: 10px; padding: 20px; margin: 16px 0; text-align: center; }
+  .url-box a { color: #667eea; font-size: 18px; font-weight: 700; word-break: break-all; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0; }
+  .feature-card { background: #fff; border: 1px solid #e8eaed; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .feature-card .icon { font-size: 32px; margin-bottom: 8px; }
+  .feature-card .title { font-weight: 700; font-size: 15px; color: #333; }
+  .feature-card .desc { font-size: 13px; color: #666; margin-top: 4px; }
+  .note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 14px; }
+  .disclaimer { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 24px; margin: 24px 0; }
+  .disclaimer h3 { margin-top: 0; }
+  .disclaimer li { font-size: 14px; color: #555; }
+  .footer { text-align: center; padding: 32px; color: #999; font-size: 13px; border-top: 1px solid #eee; margin-top: 40px; }
+  @media (max-width: 600px) { .header h1 { font-size: 22px; } .container { padding: 20px 16px 48px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>文字カウンター</h1>
+  <p>操作説明書</p>
+</div>
+
+<div class="container">
+
+  <h2>商品の特徴</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="icon">📝</div>
+      <div class="title">リアルタイムカウント</div>
+      <div class="desc">文字数・単語数・行数・段落数を入力と同時に自動表示</div>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎯</div>
+      <div class="title">文字数制限プリセット</div>
+      <div class="desc">Twitter・Instagram・noteなど主要SNS対応</div>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <div class="title">プログレスバー</div>
+      <div class="desc">残り文字数を色で直感的に把握</div>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🌙</div>
+      <div class="title">ダークモード</div>
+      <div class="desc">目に優しい暗色モードに切替可能</div>
+    </div>
+  </div>
+
+  <h2>アプリを開く</h2>
+  <div class="url-box">
+    <p style="margin-bottom: 8px; font-size: 14px; color: #555;">以下のURLをクリックしてアプリを開きます</p>
+    <a href="https://char-counter-red.vercel.app" target="_blank">https://char-counter-red.vercel.app</a>
+  </div>
+  <p>PC・スマートフォン・タブレットのブラウザからアクセスできます。インストール不要です。</p>
+
+  <h2>操作説明</h2>
+
+  <h3>テキスト入力と文字数表示</h3>
+  <p>画面中央のテキストエリアに文字を入力すると、以下の5項目がリアルタイムで表示されます。</p>
+  <table>
+    <tr><th>項目</th><th>説明</th></tr>
+    <tr><td>文字数（スペース含む）</td><td>全角・半角スペースを含むすべての文字数</td></tr>
+    <tr><td>文字数（スペース除く）</td><td>スペースを除いた文字数</td></tr>
+    <tr><td>単語数</td><td>スペースで区切られた単語の数</td></tr>
+    <tr><td>行数</td><td>改行で区切られた行の数</td></tr>
+    <tr><td>段落数</td><td>空行で区切られた段落の数</td></tr>
+  </table>
+
+  <h3>コピー・クリア</h3>
+  <ul>
+    <li><strong>コピーボタン</strong>：テキストエリアの内容をクリップボードにコピーします。成功時は「コピーしました」と通知が表示されます。</li>
+    <li><strong>クリアボタン</strong>：テキストエリアの内容をすべて消去します。</li>
+  </ul>
+
+  <h3>文字数制限プリセット</h3>
+  <p>テキストエリアの上にあるプリセットボタンを押すと、文字数制限モードになります。</p>
+  <table>
+    <tr><th>プリセット</th><th>文字数制限</th></tr>
+    <tr><td>Twitter</td><td>140文字</td></tr>
+    <tr><td>Instagram キャプション</td><td>2,200文字</td></tr>
+    <tr><td>note 見出し</td><td>100文字</td></tr>
+    <tr><td>メタディスクリプション</td><td>120文字</td></tr>
+    <tr><td>ブログタイトル</td><td>32文字</td></tr>
+    <tr><td>カスタム</td><td>任意の数値を入力可能</td></tr>
+  </table>
+
+  <h3>プログレスバーの色</h3>
+  <ul>
+    <li><strong>青</strong>：通常（0〜80%）</li>
+    <li><strong>黄色</strong>：残り少ない（80%超）</li>
+    <li><strong>赤</strong>：文字数超過（超過文字数も表示）</li>
+  </ul>
+  <p>「なし」ボタンを押すと制限モードを解除します。カスタム設定では任意の文字数を入力して「設定」ボタンまたはEnterキーで設定できます。</p>
+
+  <h3>ダークモード</h3>
+  <p>画面右上の丸いボタンで切り替えできます。</p>
+  <ul>
+    <li>🌙（月アイコン）→ ダークモードに切替</li>
+    <li>☀️（太陽アイコン）→ ライトモードに切替</li>
+  </ul>
+  <p>初回アクセス時はお使いの端末のシステム設定に自動追従します。手動で切り替えた場合、次回以降もその設定が記憶されます。</p>
+
+  <div class="disclaimer">
+    <h3>免責事項</h3>
+    <ul>
+      <li>本アプリは無保証で提供されます。利用によって生じた損害について、開発者は一切の責任を負いません。</li>
+      <li>入力されたテキストデータはお使いのブラウザ内でのみ処理され、外部サーバーには送信されません。</li>
+      <li>文字数のカウント結果は参考値です。サービスによってカウント方法が異なる場合があります。</li>
+      <li>推奨ブラウザ：Google Chrome / Microsoft Edge / Safari / Firefox の最新版</li>
+      <li>アプリの仕様は予告なく変更される場合があります。</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  &copy; OFFICENN
+</div>
+
+</body>
+</html>
